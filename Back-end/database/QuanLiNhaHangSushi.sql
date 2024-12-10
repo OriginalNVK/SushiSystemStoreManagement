@@ -95,8 +95,8 @@ CREATE TABLE CARD_CUSTOMER (
     CardEstablishDate DATE,
     EmployeeID INT,
     Score INT CHECK(Score >=0),
-    CardType NVARCHAR(100) CHECK (CardType in (N'member', N'silver', N'golden')
-);
+    CardType NVARCHAR(100) CHECK (CardType in (N'member', N'silver', N'golden'))
+)
 GO
 
 CREATE TABLE CUSTOMER (
@@ -186,6 +186,13 @@ CREATE TABLE RevenueByYear (
 );
 GO
 
+CREATE TABLE userWeb (
+    userPhone CHAR(15) PRIMARY KEY,
+    password NVARCHAR(255),
+    role NVARCHAR(50) CHECK (role IN ('customer', 'employee', 'manager branch', 'manager company'))
+);
+GO
+
 ALTER TABLE QUALITY
 ADD CONSTRAINT FK_Quality_Area FOREIGN KEY (AreaID) REFERENCES AREA(AreaID),
     CONSTRAINT FK_Quality_Branch FOREIGN KEY (BranchID) REFERENCES BRANCH(BranchID);
@@ -249,4 +256,12 @@ GO
 
 ALTER TABLE ORDER_OFFLINE
 ADD CONSTRAINT FK_OfflineOrder FOREIGN KEY (OffOrderID) REFERENCES ORDER_DIRECTORY(OrderID);
+GO
+
+ALTER TABLE CUSTOMER
+ADD CONSTRAINT FK_User_Customer FOREIGN KEY (CustomerPhone) REFERENCES userWeb(userPhone);
+GO
+
+ALTER TABLE EMPLOYEE
+ADD CONSTRAINT FK_User_Employee FOREIGN KEY (EmployeePhone) REFERENCES userWeb(userPhone);
 GO
