@@ -101,11 +101,11 @@ VALUES
 GO
 
 -- update manager ID
-update branch 
+update BRANCH
 set ManagerID = 1
-where BranchID = 1
+where BranchID = 2
 
-
+select* from EMPLOYEE
 update branch 
 set ManagerID = 3
 where BranchID = 2

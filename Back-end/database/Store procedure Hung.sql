@@ -1,11 +1,8 @@
 ﻿USE SUSHISTORE_MANAGEMENT
 GO
 
-select* from EMPLOYEE 
-select* from DISH
-select* from DIRECTORY_DISH
 --Them nhan vien
-CREATE PROC New_Employee
+CREATE OR ALTER PROC New_Employee
 	@EmployeeID INT,
 	@EmployeeName NVARCHAR(255),
     @EmployeeBirth DATE,
@@ -30,7 +27,7 @@ END;
 GO
 
 --Cap nhat thong tin nhan vien
-CREATE PROCEDURE Update_Employee
+CREATE OR ALTER PROCEDURE Update_Employee
     @EmployeeID INT,
     @EmployeeName NVARCHAR(255),
     @EmployeeBirth DATE,
@@ -61,7 +58,7 @@ END;
 GO
 
 --Xoa nhan vien
-CREATE PROCEDURE Delete_Employee
+CREATE OR ALTER PROCEDURE Delete_Employee
     @EmployeeID INT
 AS
 BEGIN
@@ -78,7 +75,7 @@ END;
 GO
 
 --Them mon an
-CREATE PROCEDURE AddNewDish
+CREATE OR ALTER PROCEDURE AddNewDish
     @BranchID INT,
     @DirectoryName NVARCHAR(255),
     @DishID INT, -- Thêm DishID vào tham số đầu vào
@@ -129,7 +126,7 @@ GO
 
 
 --Xoa mon an
-CREATE PROCEDURE DeleteDish
+CREATE OR ALTER PROCEDURE DeleteDish
     @DishID INT
 AS
 BEGIN

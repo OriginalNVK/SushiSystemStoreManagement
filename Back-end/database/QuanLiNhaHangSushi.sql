@@ -186,10 +186,10 @@ CREATE TABLE RevenueByYear (
 );
 GO
 
-CREATE TABLE userWeb (
-    userPhone CHAR(15) PRIMARY KEY,
-    password NVARCHAR(255),
-    role NVARCHAR(50) CHECK (role IN ('customer', 'employee', 'manager branch', 'manager company'))
+CREATE TABLE USERWEB (
+    UserPhone CHAR(15) PRIMARY KEY,
+    Password NVARCHAR(255),
+    Role NVARCHAR(50) CHECK (role IN ('customer', 'employee', 'manager branch', 'manager company'))
 );
 GO
 
@@ -256,12 +256,4 @@ GO
 
 ALTER TABLE ORDER_OFFLINE
 ADD CONSTRAINT FK_OfflineOrder FOREIGN KEY (OffOrderID) REFERENCES ORDER_DIRECTORY(OrderID);
-GO
-
-ALTER TABLE CUSTOMER
-ADD CONSTRAINT FK_User_Customer FOREIGN KEY (CustomerPhone) REFERENCES userWeb(userPhone);
-GO
-
-ALTER TABLE EMPLOYEE
-ADD CONSTRAINT FK_User_Employee FOREIGN KEY (EmployeePhone) REFERENCES userWeb(userPhone);
 GO
