@@ -74,7 +74,7 @@ CREATE TABLE EMPLOYEE (
     EntryDate DATE,
     LeaveDate DATE,
     DepartmentID INT NOT NULL,
-    BranchID INT,
+    BranchID INT,   
     EmployeeAddress NVARCHAR(255),
     EmployeePhone CHAR(15)
 );
