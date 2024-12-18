@@ -100,7 +100,8 @@ CREATE TABLE CARD_CUSTOMER (
 GO
 
 CREATE TABLE CUSTOMER (
-    CardID INT PRIMARY KEY,
+    CustomerID INT PRIMARY KEY,
+    CardID INT,
     CustomerName NVARCHAR(255),
     CustomerEmail NVARCHAR(255),
     CustomerGender NVARCHAR(10) CHECK (CustomerGender IN ('male', 'female', 'other')),
